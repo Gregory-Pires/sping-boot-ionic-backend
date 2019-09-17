@@ -11,7 +11,6 @@ import com.blene.cursomc.domain.ItemPedido;
 import com.blene.cursomc.domain.PagamentoComBoleto;
 import com.blene.cursomc.domain.Pedido;
 import com.blene.cursomc.domain.enums.EstadoPagamento;
-import com.blene.cursomc.repositories.ClienteRepository;
 import com.blene.cursomc.repositories.ItemPedidoRepository;
 import com.blene.cursomc.repositories.PagamentoRepository;
 import com.blene.cursomc.repositories.PedidoRepository;
@@ -34,6 +33,9 @@ public class PedidoService {
 	
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -64,7 +66,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 
