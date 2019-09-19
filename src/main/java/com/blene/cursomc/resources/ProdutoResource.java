@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blene.cursomc.domain.Produto;
-import com.blene.cursomc.dto.CategoriaDTO;
 import com.blene.cursomc.dto.ProdutoDTO;
 import com.blene.cursomc.resources.utils.URL;
 import com.blene.cursomc.services.ProdutoService;
