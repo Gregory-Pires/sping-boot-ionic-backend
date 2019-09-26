@@ -75,8 +75,8 @@ public class CategoriaResource {
 			@RequestParam(value="orderBy", defaultValue="nome") String orderBy, 
 			@RequestParam(value="direction", defaultValue="ASC") String direction) {
 		Page<Categoria> list = service.findPage(page, linesPerPage, orderBy,direction);
-		Page<CategoriaDTO> lisDto = list.map(obj -> new CategoriaDTO(obj));
-		return ResponseEntity.ok().body(lisDto);		
+		Page<CategoriaDTO> listDto = list.map(obj -> new CategoriaDTO(obj));
+		return ResponseEntity.ok().body(listDto);		
 	}
 
 	
